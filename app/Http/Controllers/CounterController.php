@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Factories\Counter\CounterFactory;
+use App\Http\Requests\CounterRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -21,29 +21,18 @@ class CounterController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param CounterRequest $request
+     * @param CounterFactory $counterFactory
      *
      * @return Response
      */
-    public function store(Request $request): Response
+    public function store(CounterRequest $request, CounterFactory $counterFactory): Response
     {
-        $data = $request->validate([
-            'type' => Rule::in(['characters', 'letters', 'words']),
-            'string' => ['required', 'min:1'],
-        ]);
-
-        $string = $data['string'];
-        $type = $data['type'];
-
-        $result = match ($type) {
-            'characters' => Str::length($string),
-            'letters' => count(array_filter(str_split($string), 'ctype_alpha')),
-            'words' => Str::wordCount($string)
-        };
+        $DTO = $request->getDTO();
 
         return Inertia::render('Counter', [
             'result' => [
-                'value' => $result,
+                'value' => $counterFactory->make($DTO->getType())->count($DTO->getString()),
             ],
         ]);
     }
