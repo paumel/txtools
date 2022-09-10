@@ -14,7 +14,8 @@ class CounterControllerTest extends TestCase
     {
         $response = $this->get(route('counter'));
 
-        $response->assertInertia(fn(Assert $page) => $page
+        $response->assertInertia(
+            fn (Assert $page) => $page
             ->component('Counter')
         );
     }
@@ -56,9 +57,12 @@ class CounterControllerTest extends TestCase
             'string' => $string,
         ]);
 
-        $response->assertInertia(fn(Assert $page) => $page
+        $response->assertInertia(
+            fn (Assert $page) => $page
             ->component('Counter')
-            ->has('result', fn(Assert $page) => $page
+            ->has(
+                'result',
+                fn (Assert $page) => $page
                 ->where('value', strlen($string))
             )
         );
@@ -75,9 +79,12 @@ class CounterControllerTest extends TestCase
             'string' => $string,
         ]);
 
-        $response->assertInertia(fn(Assert $page) => $page
+        $response->assertInertia(
+            fn (Assert $page) => $page
             ->component('Counter')
-            ->has('result', fn(Assert $page) => $page
+            ->has(
+                'result',
+                fn (Assert $page) => $page
                 ->where('value', 5)
             )
         );
@@ -94,9 +101,12 @@ class CounterControllerTest extends TestCase
             'string' => $string,
         ]);
 
-        $response->assertInertia(fn(Assert $page) => $page
+        $response->assertInertia(
+            fn (Assert $page) => $page
             ->component('Counter')
-            ->has('result', fn(Assert $page) => $page
+            ->has(
+                'result',
+                fn (Assert $page) => $page
                 ->where('value', 3)
             )
         );
