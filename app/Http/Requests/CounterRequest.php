@@ -17,7 +17,7 @@ class CounterRequest extends FormRequest
     }
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
     public function rules(): array
     {

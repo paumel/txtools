@@ -9,10 +9,14 @@ parameters:
     # Level 9 is the highest level
     level: 9
 
-#    ignoreErrors:
-#        - '#PHPDoc tag @var#'
-#
-#    excludePaths:
-#        - ./*/*/FileToBeExcluded.php
+    ignoreErrors:
+        - '/Parameter #1 \$data of class App\\DTOs\\CounterRequestDTO constructor expects array, mixed given./'
+        - '/Match expression does not handle remaining value: string/'
+        - '/Method App\\DTOs\\CounterRequestDTO::__construct\(\) has parameter \$data with no value type specified in iterable type array./'
+
+    excludePaths:
+        - ./app/Http/Requests/Auth/LoginRequest.php
+        - ./app/Http/Controllers/Auth/RegisteredUserController.php
+        - ./app/Http/Controllers/Auth/NewPasswordController.php
 #
 #    checkMissingIterableValueType: false

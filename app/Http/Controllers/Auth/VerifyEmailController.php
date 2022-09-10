@@ -6,25 +6,32 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\UnauthorizedException;
 
 class VerifyEmailController extends Controller
 {
     /**
-     * Mark the authenticated user's email address as verified.
+     * @param EmailVerificationRequest $request
      *
-     * @param  \Illuminate\Foundation\Auth\EmailVerificationRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function __invoke(EmailVerificationRequest $request)
+    public function __invoke(EmailVerificationRequest $request): RedirectResponse
     {
-        if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+        $user = $request->user();
+
+        if (!$user) {
+            throw new UnauthorizedException();
         }
 
-        if ($request->user()->markEmailAsVerified()) {
-            event(new Verified($request->user()));
+        if ($user->hasVerifiedEmail()) {
+            return redirect()->intended(RouteServiceProvider::HOME . '?verified=1');
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+        if ($user->markEmailAsVerified()) {
+            event(new Verified($user));
+        }
+
+        return redirect()->intended(RouteServiceProvider::HOME . '?verified=1');
     }
 }
