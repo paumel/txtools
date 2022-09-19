@@ -15,7 +15,7 @@ class CaseConverterControllerTest extends TestCase
         $response = $this->get(route('case-converter'));
 
         $response->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('CaseConverter')
         );
     }
@@ -58,11 +58,11 @@ class CaseConverterControllerTest extends TestCase
         ]);
 
         $response->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('CaseConverter')
                 ->has(
                     'result',
-                    fn(Assert $page) => $page
+                    fn (Assert $page) => $page
                         ->where('value', 'Test test one. Test test two. What? Lolš!')
                 )
         );
@@ -80,11 +80,11 @@ class CaseConverterControllerTest extends TestCase
         ]);
 
         $response->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('CaseConverter')
                 ->has(
                     'result',
-                    fn(Assert $page) => $page
+                    fn (Assert $page) => $page
                         ->where('value', 'test test one. step. at a timeš')
                 )
         );
@@ -102,11 +102,11 @@ class CaseConverterControllerTest extends TestCase
         ]);
 
         $response->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('CaseConverter')
                 ->has(
                     'result',
-                    fn(Assert $page) => $page
+                    fn (Assert $page) => $page
                         ->where('value', 'TEST TEST ONE. STEP. AT A TIMEŠ')
                 )
         );
@@ -124,11 +124,11 @@ class CaseConverterControllerTest extends TestCase
         ]);
 
         $response->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('CaseConverter')
                 ->has(
                     'result',
-                    fn(Assert $page) => $page
+                    fn (Assert $page) => $page
                         ->where('value', 'Test Test One. Step. At A Timeš')
                 )
         );
@@ -146,11 +146,11 @@ class CaseConverterControllerTest extends TestCase
         ]);
 
         $response->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('CaseConverter')
                 ->has(
                     'result',
-                    fn(Assert $page) => $page
+                    fn (Assert $page) => $page
                         ->where('value', 'tEsT TeSt oNe. StEp. At a tImEš')
                 )
         );
@@ -168,11 +168,11 @@ class CaseConverterControllerTest extends TestCase
         ]);
 
         $response->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('CaseConverter')
                 ->has(
                     'result',
-                    fn(Assert $page) => $page
+                    fn (Assert $page) => $page
                         ->where('value', 'TeSt tESt oNe. StEP. At a TIMEš')
                 )
         );
