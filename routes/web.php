@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CaseConverterController;
 use App\Http\Controllers\CounterController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -31,5 +32,8 @@ Route::get('/dashboard', function () {
 
 Route::get('counter', [CounterController::class, 'index'])->name('counter');
 Route::post('counter', [CounterController::class, 'store'])->name('counter');
+
+Route::get('case-converter', [CaseConverterController::class, 'index'])->name('case-converter');
+Route::post('case-converter', [CaseConverterController::class, 'store'])->name('case-converter');
 
 require __DIR__ . '/auth.php';

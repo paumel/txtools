@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Factories\CaseConverter;
+
+use App\Interfaces\Factories\CaseConverterInterface;
+use Illuminate\Support\Str;
+
+class UpperConverter implements CaseConverterInterface
+{
+    /**
+     * @inheritdoc
+     */
+    public function convert(string $string): string
+    {
+        return Str::upper($string);
+    }
+}

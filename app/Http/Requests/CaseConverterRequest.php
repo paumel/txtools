@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests;
 
-use App\Constants\CounterTypes;
+use App\Constants\CaseConverterTypes;
 use App\DTOs\CounterRequestDTO;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CounterRequest extends FormRequest
+class CaseConverterRequest extends FormRequest
 {
     /**
      * @return bool
@@ -23,7 +23,7 @@ class CounterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type' => Rule::in(CounterTypes::getAll()),
+            'type' => Rule::in(CaseConverterTypes::getAll()),
             'string' => ['required', 'min:1'],
         ];
     }
