@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\CounterTypes;
 use App\Factories\Counter\CounterFactory;
 use App\Http\Requests\CounterRequest;
 use Illuminate\Http\Request;
@@ -17,7 +18,9 @@ class CounterController extends Controller
      */
     public function index(Request $request): Response
     {
-        return Inertia::render('Counter');
+        return Inertia::render('Counter', [
+            'types' => CounterTypes::getAll(),
+        ]);
     }
 
     /**
@@ -31,6 +34,7 @@ class CounterController extends Controller
         $DTO = $request->getDTO();
 
         return Inertia::render('Counter', [
+            'types' => CounterTypes::getAll(),
             'result' => [
                 'value' => $counterFactory->make($DTO->getType())->count($DTO->getString()),
             ],

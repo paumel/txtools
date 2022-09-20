@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\CaseConverterTypes;
 use App\Factories\CaseConverter\CaseConverterFactory;
 use App\Http\Requests\CaseConverterRequest;
 use Illuminate\Http\Request;
@@ -17,7 +18,9 @@ class CaseConverterController extends Controller
      */
     public function index(Request $request): Response
     {
-        return Inertia::render('CaseConverter');
+        return Inertia::render('CaseConverter', [
+            'types' => CaseConverterTypes::getAll(),
+        ]);
     }
 
     /**
@@ -31,6 +34,7 @@ class CaseConverterController extends Controller
         $DTO = $request->getDTO();
 
         return Inertia::render('CaseConverter', [
+            'types' => CaseConverterTypes::getAll(),
             'result' => [
                 'value' => $caseConverterFactory->make($DTO->getType())->convert($DTO->getString()),
             ],

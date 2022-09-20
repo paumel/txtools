@@ -19,9 +19,6 @@ class CaseConverterTypes
     /** @var string ALTERNATING */
     public const ALTERNATING = 'alternating';
 
-    /** @var string TITLE */
-    public const TITLE = 'title';
-
     /** @var string INVERSE */
     public const INVERSE = 'inverse';
 
@@ -36,7 +33,6 @@ class CaseConverterTypes
             self::UPPER,
             self::CAPITALIZED,
             self::ALTERNATING,
-            self::TITLE,
             self::INVERSE,
         ];
     }
