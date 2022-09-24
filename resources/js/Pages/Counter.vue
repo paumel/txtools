@@ -23,6 +23,22 @@ function submit(type) {
 <template>
     <Head title="Counter"/>
 
+    <div class="flex justify-center bg-violet-500 space-x-4 bg-red-500">
+        <Link :href="route('counter')"
+              class="m-2 w-full md:w-1/3 lg:w-1/6 text-center bg-violet-200 hover:bg-violet-300 active:bg-violet-400 border-solid border-2 border-violet-700 rounded-xl">
+            <p class="text-2xl font-medium text-violet-800 dark:text-gray-500">
+                Counter
+            </p>
+        </Link>
+
+        <Link :href="route('case-converter')"
+              class="m-2 w-full md:w-1/3 lg:w-1/6 text-center bg-violet-200 hover:bg-violet-300 active:bg-violet-400 border-solid border-2 border-violet-500 rounded-xl">
+            <p class="text-2xl font-medium text-violet-800 dark:text-gray-500">
+                Case converter
+            </p>
+        </Link>
+    </div>
+
     <div
         class="relative flex flex-col items-top justify-start min-h-screen bg-gradient-to-r from-violet-100 to-purple-100 sm:items-center sm:pt-0">
 
@@ -46,7 +62,7 @@ function submit(type) {
                 </button>
             </div>
         </div>
-        <div class="flex justify-center items-center mt-4 space-x-2 md:space-x-4">
+        <div class="flex justify-center items-center mt-4 space-x-2 md:space-x-4" v-if="result">
             <div class="bg-violet-300 text-violet-800 border-solid border-2 border-violet-300 rounded-xl">
                 <p class="text-xl font-medium text-violet-900 dark:text-gray-500 p-4">Result:</p>
             </div>
