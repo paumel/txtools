@@ -23,7 +23,7 @@ function submit(type) {
 <template>
     <Head title="Counter"/>
 
-    <div class="flex justify-center bg-violet-500 space-x-4 bg-red-500">
+    <div class="flex justify-center bg-violet-500 space-x-4">
         <Link :href="route('counter')"
               class="m-2 w-full md:w-1/3 lg:w-1/6 text-center bg-violet-200 hover:bg-violet-300 active:bg-violet-400 border-solid border-2 border-violet-700 rounded-xl">
             <p class="text-2xl font-medium text-violet-800 dark:text-gray-500">
