@@ -38,6 +38,7 @@ class CaseConverterController extends Controller
             'result' => [
                 'value' => $caseConverterFactory->make($DTO->getType())->convert($DTO->getString()),
             ],
+            'currentType' => $DTO->getType(),
         ]);
     }
 }

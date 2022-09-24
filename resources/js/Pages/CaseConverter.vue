@@ -6,7 +6,8 @@ import {useForm} from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
     types: Array,
-    result: Object
+    result: Object,
+    currentType: String
 })
 
 const form = useForm({
@@ -65,6 +66,7 @@ function submit(type) {
             <div class="flex flex-wrap justify-between">
                 <button @click="submit(type)"
                         class="mx-1 md:mx-2 my-1 p-4 bg-violet-200 hover:bg-violet-300 active:bg-violet-400 border-solid border-2 border-violet-300 rounded-xl text-sm md:text-xl text-violet-800"
+                        :class="{ 'bg-violet-300': currentType === type, 'bg-violet-200': currentType !== type }"
                         v-for="type in types">
                     {{ type }}
                 </button>

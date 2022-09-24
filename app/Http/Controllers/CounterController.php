@@ -38,6 +38,7 @@ class CounterController extends Controller
             'result' => [
                 'value' => $counterFactory->make($DTO->getType())->count($DTO->getString()),
             ],
+            'currentType' => $DTO->getType(),
         ]);
     }
 }
