@@ -30,10 +30,12 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('counter', [CounterController::class, 'index'])->name('counter');
-Route::post('counter', [CounterController::class, 'store'])->name('counter');
+Route::middleware(['throttle:global'])->group(function () {
+    Route::get('counter', [CounterController::class, 'index'])->name('counter');
+    Route::post('counter', [CounterController::class, 'store'])->name('counter');
 
-Route::get('case-converter', [CaseConverterController::class, 'index'])->name('case-converter');
-Route::post('case-converter', [CaseConverterController::class, 'store'])->name('case-converter');
+    Route::get('case-converter', [CaseConverterController::class, 'index'])->name('case-converter');
+    Route::post('case-converter', [CaseConverterController::class, 'store'])->name('case-converter');
+});
 
 require __DIR__ . '/auth.php';
