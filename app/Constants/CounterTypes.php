@@ -5,13 +5,13 @@ namespace App\Constants;
 class CounterTypes
 {
     /** @var string CHARACTERS */
-    public const CHARACTERS = 'characters';
+    public const CHARACTERS = 'Characters';
 
     /** @var string WORDS */
-    public const WORDS = 'words';
+    public const WORDS = 'Words';
 
     /** @var string LETTERS */
-    public const LETTERS = 'letters';
+    public const LETTERS = 'Letters';
 
     /**
      * @return string[]

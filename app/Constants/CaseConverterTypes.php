@@ -5,22 +5,22 @@ namespace App\Constants;
 class CaseConverterTypes
 {
     /** @var string SENTENCE */
-    public const SENTENCE = 'sentence';
+    public const SENTENCE = 'Sentence';
 
     /** @var string LOWER */
-    public const LOWER = 'lower';
+    public const LOWER = 'Lower';
 
     /** @var string UPPER */
-    public const UPPER = 'upper';
+    public const UPPER = 'Upper';
 
     /** @var string CAPITALIZED */
-    public const CAPITALIZED = 'capitalized';
+    public const CAPITALIZED = 'Capitalized';
 
     /** @var string ALTERNATING */
-    public const ALTERNATING = 'alternating';
+    public const ALTERNATING = 'Alternating';
 
     /** @var string INVERSE */
-    public const INVERSE = 'inverse';
+    public const INVERSE = 'Inverse';
 
     /**
      * @return string[]
