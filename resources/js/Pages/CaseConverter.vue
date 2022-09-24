@@ -30,7 +30,14 @@ function submit(type) {
 </script>
 
 <template>
-    <Head title="Case converter"/>
+    <Head title="Case converter">
+        <meta charset="UTF-8">
+        <meta name="description"
+              content="This is a free, online tool, that helps you to easily convert a case or count characters, words and letters in your text, title or message">
+        <meta name="keywords"
+              content="case converter, convert case, text converter, sentence case, lower case, upper case, capitalized case, alternating case, spongebob case, inverse case">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </Head>
 
     <div class="flex justify-center bg-violet-500 space-x-4">
         <Link :href="route('counter')"

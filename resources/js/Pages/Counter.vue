@@ -22,7 +22,13 @@ function submit(type) {
 </script>
 
 <template>
-    <Head title="Counter"/>
+    <Head title="Counter">
+        <meta charset="UTF-8">
+        <meta name="description"
+              content="This is a free, online tool, that helps you to easily count characters, words and letters in your text, title or message">
+        <meta name="keywords" content="characters counter, word counter, letter counter, char counter">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </Head>
 
     <div class="flex justify-center bg-violet-500 space-x-4">
         <Link :href="route('counter')"
