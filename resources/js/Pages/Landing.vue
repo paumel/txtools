@@ -26,14 +26,14 @@ defineProps({
         </div>
         <div class="text-left px-3 md:px-0 md:text-center mb-5">
             <p class="text-md md:text-xl font-medium text-violet-800">This is a free, online tool to help you with your
-                texts
+                texts,
                 titles or messages.</p>
             <p class="text-md md:text-xl font-medium text-violet-800">You can choose Case Converter if you want to
                 transform your
                 text to any shape you like.</p>
-            <p class="text-md md:text-xl font-medium text-violet-800">If you want to know how many characters words or
+            <p class="text-md md:text-xl font-medium text-violet-800">If you want to know how many characters, words or
                 letters your
-                text contains you can choose Counter</p>
+                text contains, you can choose Counter</p>
         </div>
 
         <div class="flex flex-wrap w-full justify-center">
