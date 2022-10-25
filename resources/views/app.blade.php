@@ -27,8 +27,6 @@
 
     gtag('config', 'G-YV3FF2YSGW');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4692135382571695"
-        crossorigin="anonymous"></script>
 <body class="font-sans antialiased">
 @inertia
 </body>
