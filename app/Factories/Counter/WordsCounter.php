@@ -12,6 +12,8 @@ class WordsCounter implements CounterInterface
      */
     public function count(string $string): int
     {
-        return Str::wordCount($string);
+        preg_match_all('/[\pL\pN]+/u', $string, $matches);
+        
+        return count($matches[0]);
     }
 }

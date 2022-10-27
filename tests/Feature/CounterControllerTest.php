@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Constants\CounterTypes;
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
@@ -15,8 +16,8 @@ class CounterControllerTest extends TestCase
         $response = $this->get(route('counter'));
 
         $response->assertInertia(
-            fn (Assert $page) => $page
-            ->component('Counter')
+            fn(Assert $page) => $page
+                ->component('Counter')
         );
     }
 
@@ -39,7 +40,7 @@ class CounterControllerTest extends TestCase
     public function test_it_validates_required_string(): void
     {
         $response = $this->post(route('counter'), [
-            'type' => 'characters',
+            'type' => CounterTypes::CHARACTERS,
             'string' => '',
         ]);
 
@@ -53,18 +54,18 @@ class CounterControllerTest extends TestCase
     {
         $string = 'test 1234 ! $ ^ ./';
         $response = $this->post(route('counter'), [
-            'type' => 'characters',
+            'type' => CounterTypes::CHARACTERS,
             'string' => $string,
         ]);
 
         $response->assertInertia(
-            fn (Assert $page) => $page
-            ->component('Counter')
-            ->has(
-                'result',
-                fn (Assert $page) => $page
-                ->where('value', strlen($string))
-            )
+            fn(Assert $page) => $page
+                ->component('Counter')
+                ->has(
+                    'result',
+                    fn(Assert $page) => $page
+                        ->where('value', strlen($string))
+                )
         );
     }
 
@@ -75,18 +76,40 @@ class CounterControllerTest extends TestCase
     {
         $string = 'tests 1234 ! $ ^ ./';
         $response = $this->post(route('counter'), [
-            'type' => 'letters',
+            'type' => CounterTypes::LETTERS,
             'string' => $string,
         ]);
 
         $response->assertInertia(
-            fn (Assert $page) => $page
-            ->component('Counter')
-            ->has(
-                'result',
-                fn (Assert $page) => $page
-                ->where('value', 5)
-            )
+            fn(Assert $page) => $page
+                ->component('Counter')
+                ->has(
+                    'result',
+                    fn(Assert $page) => $page
+                        ->where('value', 5)
+                )
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function test_it_counts_utf8_letters(): void
+    {
+        $string = 'ąčęėįšųūž   ;\;/.,,,~`';
+        $response = $this->post(route('counter'), [
+            'type' => CounterTypes::LETTERS,
+            'string' => $string,
+        ]);
+
+        $response->assertInertia(
+            fn(Assert $page) => $page
+                ->component('Counter')
+                ->has(
+                    'result',
+                    fn(Assert $page) => $page
+                        ->where('value', 9)
+                )
         );
     }
 
@@ -95,20 +118,42 @@ class CounterControllerTest extends TestCase
      */
     public function test_it_counts_words(): void
     {
-        $string = 'tests zodis cia 1234 ! $ ^ ./';
+        $string = 'tests zodis cia ! $ ^ ./';
         $response = $this->post(route('counter'), [
-            'type' => 'words',
+            'type' => CounterTypes::WORDS,
             'string' => $string,
         ]);
 
         $response->assertInertia(
-            fn (Assert $page) => $page
-            ->component('Counter')
-            ->has(
-                'result',
-                fn (Assert $page) => $page
-                ->where('value', 3)
-            )
+            fn(Assert $page) => $page
+                ->component('Counter')
+                ->has(
+                    'result',
+                    fn(Assert $page) => $page
+                        ->where('value', 3)
+                )
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function test_it_counts_utf8_words(): void
+    {
+        $string = 'ačiū tau labai .,.,.,.';
+        $response = $this->post(route('counter'), [
+            'type' => CounterTypes::WORDS,
+            'string' => $string,
+        ]);
+
+        $response->assertInertia(
+            fn(Assert $page) => $page
+                ->component('Counter')
+                ->has(
+                    'result',
+                    fn(Assert $page) => $page
+                        ->where('value', 3)
+                )
         );
     }
 }

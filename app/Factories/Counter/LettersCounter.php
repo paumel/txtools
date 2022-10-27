@@ -11,6 +11,8 @@ class LettersCounter implements CounterInterface
      */
     public function count(string $string): int
     {
-        return count(array_filter(str_split($string), 'ctype_alpha'));
+        preg_match_all("/\p{L}/u", $string, $letters);
+        
+        return count($letters[0]);
     }
 }
