@@ -25,7 +25,7 @@ function submit(type) {
     <Head title="Counter">
         <meta charset="UTF-8">
         <meta name="description"
-              content="This is a free, online tool, that helps you to easily count characters, words and letters in your text, title or message">
+              content="Count words, characters or letters with this free online text counter tool. It will help you with twitter, linkedin, facebook posts length">
         <meta name="keywords" content="characters counter, word counter, letter counter, char counter">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </Head>

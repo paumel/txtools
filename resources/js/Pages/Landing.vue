@@ -12,7 +12,7 @@ defineProps({
 <template>
     <Head :title="$page.props.appName">
         <meta name="description"
-              content="This is a free, online tool, that helps you to easily convert a case or you can easily count characters, words and letters in your text, title or message">
+              content="Convert text case to upper, lower, sentence, capitalized or alternating, or count letters, chars, words with this free online counter/converter tool">
         <meta name="keywords"
               content="case converter, convert case, text converter, sentence case, lower case, upper case, capitalized case, alternating case, spongebob case, inverse case, characters counter, word counter, letter counter, char counter">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

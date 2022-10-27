@@ -33,7 +33,7 @@ function submit(type) {
     <Head title="Case converter">
         <meta charset="UTF-8">
         <meta name="description"
-              content="This is a free, online tool, that helps you to easily convert a case of your text to uppercase, lower case and others">
+              content="Convert text case to upper case, lower case, sentence case, capitalized case, alternating case, inverse case or transform your text in any way  with this converter">
         <meta name="keywords"
               content="case converter, convert case, text converter, sentence case, lower case, upper case, capitalized case, alternating case, spongebob case, inverse case">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
